@@ -1,0 +1,28 @@
+{{!< default}}
+
+    <main class="site-content content-width content-width--medium">
+
+        {{!-- partials/post-slider.hbs --}}
+        {{>"post-slider"}}
+
+        <div class="post-feed">
+
+            <h3 class="post-feed__title">{{t "Check out our latest articles"}}</h3>
+
+            {{#foreach posts}}
+
+                {{!-- partials/feed-item.hbs --}}
+                {{>"feed-item"}}
+
+            {{/foreach}}
+            
+        </div>
+
+        {{!-- partials/pagination.hbs --}}
+        {{pagination}}
+
+        {{!-- partials/post-selected.hbs --}}
+        {{>"post-selected"}}
+       
+    </main>
+ 

@@ -1,0 +1,22 @@
+<div class="pagination">
+
+    {{!-- load more pagination --}}
+	<button class="pagination__loadmore global-button" aria-label="pagination">{{t "Load more"}}</button>
+
+	{{!-- pagination --}}
+	<nav class="pagination__paged" role="navigation">
+		<div class="pagination__paged-newer">
+			{{#if prev}}
+				<a class="newer-posts" href="{{page_url prev}}">{{t "Newer Posts"}}</a>
+			{{/if}}
+		</div>
+
+		<span class="page-number">{{page}} {{t "of"}} {{pages}}</span>
+
+		<div class="pagination__paged-older">
+			{{#if next}}
+				<a class="older-posts" href="{{page_url next}}">{{t "Older Posts"}}</a>
+			{{/if}}
+		</div>
+	</nav>
+</div>

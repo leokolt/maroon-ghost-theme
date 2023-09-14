@@ -1,0 +1,48 @@
+{{!< default}}
+
+    {{#post}}
+
+    <main class="site-content">
+        
+        <article class="entry {{post_class}}">
+
+            <header class="entry__header">
+
+                {{#if feature_image}}
+
+                    <div class="entry__image">
+                        <figure>
+                            {{!-- this "srcset" allows you to apply responsive images so that they are better displayed on different screens --}}
+                            <img src="{{img_url feature_image}}" srcset="{{>"srcset"}}"
+                                sizes="(max-width: 1000px) 400px,(max-width: 1170px) 1170px, 2000px" 
+                                src="{{img_url feature_image size=" m"}}" 
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                class="entry__image--full" />
+                            {{#if feature_image_caption}}
+                                <figcaption>{{feature_image_caption}}</figcaption>
+                            {{/if}}
+                        </figure>
+                    </div>
+
+                {{/if}}
+
+                <div class="entry__top entry-top content-width content-width--medium">
+                            
+                    <h1 class="entry__title">{{title}}</h1>
+
+                </div>
+                
+            </header>
+
+            <section class="entry__content content-width content-width--small">
+
+                {{content}}
+                
+            </section>
+
+        </article>
+
+    </main>
+
+    {{/post}}
+

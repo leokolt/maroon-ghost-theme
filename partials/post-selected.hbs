@@ -1,0 +1,80 @@
+{{^is "paged"}}
+    <div class="selected">
+
+        <h3 class="selected__title">{{t "You could have missed it"}}</h3>
+
+        {{#get "posts" filter="tags:getting-started" include="tags,authors" limit="4"}}
+
+            {{#foreach posts}}
+
+                <article class="selected__item selected-item js-scroll fade-in-bottom {{post_class}} {{#is "home"}}{{^if feature_image}}no-image{{/if}}{{/is}}">
+
+                    <div class="selected-item__inner">
+
+                        {{#if feature_image}}
+
+                        <div class="selected-item__image">
+
+                            <a class="selected-item__image-link" href="{{url}}"></a>
+
+                            {{!-- this "srcset" allows you to apply responsive images so that they are better displayed on different screens --}}
+                            <img class="selected-item__image-picture" srcset="{{>"srcset"}}"
+                                sizes="(max-width: 1000px) 400px, 800px" 
+                                src="{{img_url feature_image size="m"}}"
+                                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" 
+                                loading="lazy" />
+
+                        </div>
+
+                        {{/if}}
+
+                        <div class="selected-item__header">
+
+                            <div class="selected-item__tags">
+
+                                {{#if featured}}
+
+                                    <div class="post-item__featured-mark">
+                                        {{>"icons/flash"}}
+                                    </div>
+
+                                {{/if}}
+
+                                <div class="post-item__visibility visibility--{{visibility}}">
+                                    {{>"icons/lock"}}
+                                </div>
+
+                                {{#if primary_tag}}
+
+                                    <a href="{{primary_tag.url}}" class="selected-item__tag global-tag">{{primary_tag.name}}</a>
+                            
+                                {{/if}}
+
+                            </div>
+                        
+                            <a class="selected-item__link" href="{{url}}">
+                                <h2>{{title}}</h2>
+                            </a>
+                        
+                            <div class="selected-item__meta global-meta">
+    
+                                {{#primary_author}}
+
+                                    <a class="selected-item__author-name" href="{{url}}">{{name}}</a>
+
+                                {{/primary_author}}
+
+                                <span class="selected-item__date"> • {{date published_at timeago="true"}}</span>
+                                <span class="selected-item__reading-time"> • {{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            {{/foreach}}
+
+        {{/get}}
+        
+    </div>
+{{/is}}

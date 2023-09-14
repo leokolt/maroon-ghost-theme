@@ -1,0 +1,46 @@
+{{!< default}}
+
+    <main class="site-content content-width content-width--medium">
+
+        {{#tag}}
+
+            <section class="tag-archive tag">
+                <div class="tag__header">
+                    
+                    <div class="tag__top">
+                        <h1 class="tag__title">{{name}}</h1>
+                        <div class="tag__count">{{plural ../pagination.total empty=(t "No posts") singular=(t "1 post") plural=(t "% posts")}}</div>
+                    </div>
+
+                    {{#if description}}
+                        <div class="tag__description">{{description}}</div>
+                    {{/if}}
+
+                </div>
+
+                {{#if feature_image}}
+                    <div class="tag__image">
+                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
+                    </div>
+                {{/if}}
+                
+            </section>
+
+        {{/tag}}
+
+        <div class="post-feed">
+
+            {{#foreach posts}}
+
+                {{!-- partials/feed-item.hbs --}}
+                {{>"feed-item"}}
+
+            {{/foreach}}
+            
+        </div>
+
+        {{!-- partials/pagination.hbs --}}
+        {{pagination}}
+
+    </main>
+ 

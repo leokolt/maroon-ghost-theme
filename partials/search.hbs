@@ -1,0 +1,67 @@
+<div class="search">
+    <div class="search__inner">
+        <div class="search-left">
+
+            <div class="search-left__header">
+
+                <a class="search-left__site-logo" href="{{@site.url}}">
+                    {{#if @site.logo}}
+
+                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+
+                    {{else}}
+
+                        <h2 class="search-left__site-title">{{@site.title}}</h2>
+                    
+                    {{/if}}
+                </a>
+
+            </div>
+
+            <div class="search-left__desc">
+
+                {{@site.description}}
+
+            </div>
+
+            <div class="search-left__tags search-tags">
+
+                {{#get "tags" limit="6"}}
+
+                    {{#if tags}}
+
+                        {{#foreach tags}}
+
+                            <div class="search-tags__item">
+
+                                {{#if feature_image}}
+                                    <a class="search-tags__image" href="{{url}}" >
+                                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
+                                        <h4 class="search-tags__title">{{name}}</h4>
+                                    </a>
+                                {{/if}}
+
+                            </div>
+                
+                        {{/foreach}}
+
+                    {{/if}}
+
+                {{/get}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="search__field">
+        <button class="search__button"></button>
+        <button class="search__close"></button>
+        <input type="text" id="search__input" class="search__input" placeholder="{{t "Type here to search..."}}" />
+    
+        <div id="search__results" class="search__results"></div>
+    </div>
+
+</div>
+

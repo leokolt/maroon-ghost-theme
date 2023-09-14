@@ -1,0 +1,16 @@
+<div class="entry-footer__share">
+    <a href="http://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}" target="blank" class="entry-footer__share-facebook" title="Расшерить" onclick="window.open(this.href,'window','width=640,height=480,resizable,scrollbars,toolbar,menubar'); return false">
+        {{>"icons/facebook"}}             
+    </a>
+    
+    <a href="https://twitter.com/intent/tweet?original_referer={{url absolute='true'}}&amp;text={{title}}&amp;tw_p=tweetbutton&amp;url={{url absolute='true'}}" target="_blank"  class="entry-footer__share-twitter" title="Твитнуть" onclick="window.open(this.href,'window','width=640,height=480,resizable,scrollbars,toolbar,menubar'); return false" >
+        {{>"icons/twitter"}}
+    </a>
+    
+    <a class="entry-footer__copy-link" style="cursor: pointer">
+        <small class="success-copied">The link has been copied!</small>
+        {{>"icons/copy-link"}}
+    </a>
+    
+</div>
+<input type="text" value="{{url absolute='true'}}" class="input-link">

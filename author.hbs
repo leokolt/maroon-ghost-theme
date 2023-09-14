@@ -1,0 +1,73 @@
+{{!< default}}
+
+    <main class="site-content content-width content-width--medium">
+
+        {{#author}}
+
+            <section class="author-archive author">
+
+                <div class="author__image">
+                    <img src="{{img_url profile_image size="xs"}}" alt="{{name}}">
+                </div>
+
+                <div class="author__header">
+
+                    <h1 class="author__title">{{name}}</h1>
+
+                    <div class="author__bio">{{bio}}</div>
+
+                    <div class="author__meta">
+
+
+                        {{!-- settings for author page --}}
+                        {{#if location}}
+                            <span class="author__location">
+                                {{>"icons/location"}}
+                                {{location}}
+                            </span>
+                        {{/if}}
+
+                        {{#if website}}
+                            <a href="{{website}}" target="_blank" rel="noopener noreferrer">
+                                {{>"icons/world"}} 
+                                {{t "Site"}}
+                            </a>
+                        {{/if}}
+
+                        {{#if facebook}}
+                            <a class="share-link share-link-facebook author-social-item"
+                                href="https://www.facebook.com/{{facebook}}" target="_blank" rel="noopener noreferrer">
+                                {{>"icons/facebook"}} Facebook
+                            </a>
+                        {{/if}}
+                        {{#if twitter}}
+                            <a class="share-link share-link-twitter author-social-item"
+                                href="https://twitter.com/{{twitter}}" target="_blank" rel="noopener noreferrer">
+                                {{>"icons/twitter"}} Twitter
+                            </a>
+                        {{/if}}
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        {{/author}}
+
+        <div class="post-feed">
+
+            {{#foreach posts}}
+
+                {{!-- partials/feed-item.hbs --}}
+                {{>"feed-item"}}
+
+            {{/foreach}}
+            
+        </div>
+        
+        {{!-- partials/pagination.hbs --}}
+        {{pagination}}   
+            
+    </main>
+ 

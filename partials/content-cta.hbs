@@ -1,0 +1,22 @@
+{{!-- post access CTA --}}
+<div class="entry__content-access entry-access access--{{visibility}}">
+
+    <h3>{{t "Read the full story"}}</h3>
+   
+    {{#has visibility="members"}}
+        <p>
+           {{t "Sign up now to read the full story and get access to all members-only posts."}}
+        </p>  
+    {{/has}}
+
+    {{#has visibility="paid"}}
+        <p>
+           {{t "Sign up now to read the full story and get access to all paid posts."}}
+        </p>
+    {{/has}}
+
+    <a class="entry-access__button members-button" href="/signup/">{{t "Subscribe"}}</a>
+
+    <div class="small">{{t "Already have an account?"}} <a class="entry-access__signin" href="/signin/">{{t "Sign in →"}}</a></div>
+
+</div>

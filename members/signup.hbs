@@ -1,0 +1,83 @@
+{{!< ../default}}
+
+    <main class="site-content">
+        <section class="signup">
+
+{{#if @member.paid}}
+
+        {{!-- Logged in, paying member: Redirect home --}}
+        <script>window.location = '{{@site.url}}';</script>
+
+{{else if @member}}
+
+            <div class="signup__inner content-width content-width--medium">
+
+                {{!-- Logged in, not paying: Check out --}}
+                <div class="signup__checkout-form">
+                    <h1 class="signup__checkout-title">{{t "Choose your subscription"}}</h1>
+                    <p>{{t "Unlock full access to"}} {{@site.title}} {{t "and see the entire library of members-only content & updates"}}</p>
+                    <div class="signup__checkout-box">
+
+                        <div class="signup__checkout-plan signup-plan">
+                            <header class="signup-plan__header">
+                                <h3>{{t "Monthly"}}</h3>
+                                <strong>{{price currency=@price.currency}}{{@price.monthly}}</strong> {{t "/ month"}}
+                                <p>{{t "Pay monthly and unlock full access. Cancel anytime"}}</p>
+                            </header>
+                            <div class="signup-plan__content">
+                                <ul>
+                                    <li>{{t "Full access to all private posts"}}</li>
+                                    <li>{{t "Regular updates with new content"}}</li>
+                                    <li>{{t "Support independent publishing"}}</li>
+                                    <li>{{t "Simple, secure card payment"}}</li>
+                                </ul>
+                                <a class="signup-plan__button members-button" href="javascript:" data-members-plan="Monthly">{{t "Choose this plan"}}</a>
+                            </div>
+                        </div>
+
+                        <div class="signup__checkout-plan signup-plan">
+                            <header class="signup-plan__header">
+                                <h3>{{t "Yearly"}}</h3>
+                                <strong>{{price currency=@price.currency}}{{@price.yearly}}</strong> {{t "/ year"}}
+                                <p>{{t "Pay early and save 17%. Cancel anytime"}}</p>
+                            </header>
+                            <div class="signup-plan__content">
+                                <ul>
+                                    <li>{{t "Full access to all private posts"}}</li>
+                                    <li>{{t "Regular updates with new content"}}</li>
+                                    <li>{{t "Support independent publishing"}}</li>
+                                    <li>{{t "Simple, secure card payment"}}</li>
+                                    <li>{{t "One easy payment instead of 12!"}}</li>
+                                </ul>
+                                <a class="signup-plan__button members-button" href="javascript:" data-members-plan="Yearly">{{t "Choose this plan"}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+{{else}}
+
+            <div class="signin__inner content-width content-width--small">
+                {{!-- Not logged in: Signin form --}}
+                <form class="signup__form" data-members-form="signup">
+                    <p>{{t "Sign into your account again for full access"}}</p>
+                    <div class="signup__box members">
+                        <input data-members-name placeholder="{{t "Your name"}}" type="text" required="true">
+                        <input data-members-email type="email" placeholder="{{t "Your email address"}}" required="true" autocomplete="false" />
+                        <button class="signup__button signup-button members-button" type="submit">
+                            <span class="signup-button__content members-button__content">{{t "Continue"}}</span>
+                            <span class="signup-button__loader members-button__loader">{{>"icons/spinner"}}</span>
+                        </button>
+
+                        <div class="signup__message-success members__message-success">{{t "Great! Check your inbox and click the link to complete signin"}}</div>
+                        <div class="signup__message-error members__message-error">{{t "Please enter a valid email address!"}}</div>
+                    </div>
+
+                </form>
+            </div>
+
+        </section>
+    </main>
+
+{{/if}}

@@ -1,0 +1,33 @@
+<section class="subscribe">
+
+    <div class="subscribe__inner content-width content-width--medium">
+
+        <h2 class="subscribe__title">{{t "Subscribe to new posts"}}</h2>
+
+        <div class="subscribe__right">
+            <form class="subscribe__form" data-members-form="signup">
+                <input type="email" class="subscribe__email" data-members-email="" placeholder="your@email.com"
+                    autocomplete="false" required="">
+                <button class="subscribe__button subscribe-button global-button" type="submit" aria-label="subscribe">
+                    <span class="subscribe-button__content">{{t "Subscribe"}}</span>
+                    <span class="subscribe-button__loader">
+                        {{>"icons/spinner"}}
+                    </span>
+                </button>
+
+                <div class="subscribe__message-success">
+                    <strong>{{t "Great!"}}</strong> {{t "Check your inbox (or spam folder) and verify your account"}}
+                </div>
+                <div class="subscribe__message-error">
+                    {{t "Unfortunately, something went wrong. Try again"}}
+                </div>
+
+            </form>
+
+            <p class="subscribe__already">{{t "Already subscribed?"}}<a href="/signin/"> {{t "Log in →"}}</a></p>
+
+        </div>
+
+    </div>
+
+</section>
